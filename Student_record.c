@@ -525,13 +525,169 @@ void fordelay()
     system("cls");
 }
 
-int main()
+void login()
 {
     user usr;
     FILE *pfp;
-    int choice, first_choice;
+    int choice;
     char user_name[50];
     char user_password[50];
+
+    system("cls");
+
+    printf("\n| ==============================LOGIN TO ACCESS ALL OF THE FEATURES============================== |");
+    printf("\n\n");
+
+    printf("Enter Your Email:\t");
+    scanf("%s", &user_name);
+
+    printf("\nEnter Your Password:\t");
+    scanf("%s", &user_password);
+
+    pfp = fopen(strcat(user_name, ".txt"), "r");
+
+    if (pfp == NULL)
+    {
+        printf("\nAccount not register");
+    }
+
+    else
+    {
+        fread(&usr, sizeof(user), 1, pfp);
+        fclose(pfp);
+
+        if (!strcmp(user_password, usr.user_password))
+        {
+            system("cls");
+
+            do
+            // if password matched it will exicute the following pogramming
+            {
+                printf("\n| ==============================WELCOME TO THE SOFTWARE============================== |");
+                printf("\n|                               Developed By AKIB AHMED                               |");
+                printf("\n|_____________________________________________________________________________________|");
+                printf("\n\n");
+
+                printf("\n1. CREATE");
+                printf("\n2. DISPLAY");
+                printf("\n3. APPEND");
+                printf("\n4. NO OF RECORDS");
+                printf("\n5. SERCH RECORDS");
+                printf("\n6. UPDATE");
+                printf("\n7. DELETE");
+                printf("\n8. SHORT BY TOTAL DESCENDING - ON SCREEN");
+                printf("\n9. SHORT BY TOTAL DESCENDING - IN SCREEN");
+                printf("\n10. SHORT BY NAME - IN SCREEN");
+                printf("\n11. SHORT BY NAME - IN FILE");
+                printf("\n0. EXIT");
+
+                printf("\n\nEnter Your Choice:\t");
+                scanf("%d", &choice);
+
+                switch (choice)
+                {
+                case 1:
+                    system("cls");
+                    fordelay();
+                    printf("\n| ==============================ENTER STUDENT DETAILES============================== |");
+                    printf("\n\n");
+                    create();
+                    break;
+                case 2:
+                    system("cls");
+                    fordelay();
+                    printf("\n| ==============================DISPLAYING STUDENT DETAILES============================== |");
+                    printf("\n\n");
+                    display();
+                    printf("\n\n");
+                    break;
+                case 3:
+                    system("cls");
+                    fordelay();
+                    printf("\n| ==============================ADD NEW STUDENT DETEAILSE============================== |");
+                    printf("\n\n");
+                    append();
+                    printf("\n\n");
+                    break;
+                case 4:
+                    system("cls");
+                    fordelay();
+                    printf("\n| ==============================DISPLAYING NUMBER OF RECORD HAV BEEN WRITEN============================== |");
+                    printf("\n\n");
+                    no_of_record();
+                    printf("\n\n");
+                    break;
+                case 5:
+                    system("cls");
+                    fordelay();
+                    printf("\n| ==============================SEARCHE STUDENT DETAILES============================== |");
+                    printf("\n\n");
+                    search();
+                    printf("\n\n");
+                    break;
+                case 6:
+                    system("cls");
+                    fordelay();
+                    printf("\n| ==============================UPDATE STUDENT DETAILES============================== |");
+                    printf("\n\n");
+                    update();
+                    printf("\n\n");
+                    break;
+                case 7:
+                    system("cls");
+                    fordelay();
+                    printf("\n| ==============================DELETE STUDENT DETAILES============================== |");
+                    printf("\n\n");
+                    delete_record();
+                    printf("\n\n");
+                    break;
+                case 8:
+                    system("cls");
+                    fordelay();
+                    printf("\n| ==============================SHORTING STUDENT DETAILES BY TOTAL IN DISPLAY============================== |");
+                    printf("\n\n");
+                    short_total_on_screen();
+                    printf("\n\n");
+                    break;
+                case 9:
+                    system("cls");
+                    fordelay();
+                    printf("\n| ==============================SHORTING STUDENT DETAILES BY TOTAL IN FILE============================== |");
+                    printf("\n\n");
+                    short_total_in_file();
+                    printf("\n\n");
+                    break;
+                case 10:
+                    system("cls");
+                    fordelay();
+                    printf("\n| ==============================SHORTING STUDENT DETAILES BY NAME IN DISPLAY============================== |");
+                    printf("\n\n");
+                    short_name_on_screen();
+                    printf("\n\n");
+                    break;
+                case 11:
+                    system("cls");
+                    fordelay();
+                    printf("\n| ==============================SHORTING STUDENT DETAILES BY NAME IN DISPLAY============================== |");
+                    printf("\n\n");
+                    short_name_on_file();
+                    printf("\n\n");
+                    break;
+                }
+
+            } while (choice != 0);
+        }
+        else
+        {
+            printf("\nWorng Password");
+        }
+    }
+}
+
+int main()
+{
+
+    int first_choice;
 
     fordelay();
     printf("\n|===============================WELCOME TO LOGIN & SIGN UP PAGE===============================|");
@@ -558,154 +714,7 @@ int main()
     // will check if the password is worng or right
     {
         system("cls");
-
-        printf("\n| ==============================LOGIN TO ACCESS ALL OF THE FEATURES============================== |");
-        printf("\n\n");
-
-        printf("Enter Your Email:\t");
-        scanf("%s", &user_name);
-
-        printf("\nEnter Your Password:\t");
-        scanf("%s", &user_password);
-
-        pfp = fopen(strcat(user_name, ".txt"), "r");
-
-        if (pfp == NULL)
-        {
-            printf("\nAccount not register");
-        }
-
-        else
-        {
-            fread(&usr, sizeof(user), 1, pfp);
-            fclose(pfp);
-
-            if (!strcmp(user_password, usr.user_password))
-            {
-                system("cls");
-
-                do
-                // if password matched it will exicute the following pogramming
-                {
-                    printf("\n| ==============================WELCOME TO THE SOFTWARE============================== |");
-                    printf("\n|                               Developed By AKIB AHMED                               |");
-                    printf("\n|_____________________________________________________________________________________|");
-                    printf("\n\n");
-
-                    printf("\n1. CREATE");
-                    printf("\n2. DISPLAY");
-                    printf("\n3. APPEND");
-                    printf("\n4. NO OF RECORDS");
-                    printf("\n5. SERCH RECORDS");
-                    printf("\n6. UPDATE");
-                    printf("\n7. DELETE");
-                    printf("\n8. SHORT BY TOTAL DESCENDING - ON SCREEN");
-                    printf("\n9. SHORT BY TOTAL DESCENDING - IN SCREEN");
-                    printf("\n10. SHORT BY NAME - IN SCREEN");
-                    printf("\n11. SHORT BY NAME - IN FILE");
-                    printf("\n0. EXIT");
-
-                    printf("\n\nEnter Your Choice:\t");
-                    scanf("%d", &choice);
-
-                    switch (choice)
-                    {
-                    case 1:
-                        system("cls");
-                        fordelay();
-                        printf("\n| ==============================ENTER STUDENT DETAILES============================== |");
-                        printf("\n\n");
-                        create();
-                        break;
-                    case 2:
-                        system("cls");
-                        fordelay();
-                        printf("\n| ==============================DISPLAYING STUDENT DETAILES============================== |");
-                        printf("\n\n");
-                        display();
-                        printf("\n\n");
-                        break;
-                    case 3:
-                        system("cls");
-                        fordelay();
-                        printf("\n| ==============================ADD NEW STUDENT DETEAILSE============================== |");
-                        printf("\n\n");
-                        append();
-                        printf("\n\n");
-                        break;
-                    case 4:
-                        system("cls");
-                        fordelay();
-                        printf("\n| ==============================DISPLAYING NUMBER OF RECORD HAV BEEN WRITEN============================== |");
-                        printf("\n\n");
-                        no_of_record();
-                        printf("\n\n");
-                        break;
-                    case 5:
-                        system("cls");
-                        fordelay();
-                        printf("\n| ==============================SEARCHE STUDENT DETAILES============================== |");
-                        printf("\n\n");
-                        search();
-                        printf("\n\n");
-                        break;
-                    case 6:
-                        system("cls");
-                        fordelay();
-                        printf("\n| ==============================UPDATE STUDENT DETAILES============================== |");
-                        printf("\n\n");
-                        update();
-                        printf("\n\n");
-                        break;
-                    case 7:
-                        system("cls");
-                        fordelay();
-                        printf("\n| ==============================DELETE STUDENT DETAILES============================== |");
-                        printf("\n\n");
-                        delete_record();
-                        printf("\n\n");
-                        break;
-                    case 8:
-                        system("cls");
-                        fordelay();
-                        printf("\n| ==============================SHORTING STUDENT DETAILES BY TOTAL IN DISPLAY============================== |");
-                        printf("\n\n");
-                        short_total_on_screen();
-                        printf("\n\n");
-                        break;
-                    case 9:
-                        system("cls");
-                        fordelay();
-                        printf("\n| ==============================SHORTING STUDENT DETAILES BY TOTAL IN FILE============================== |");
-                        printf("\n\n");
-                        short_total_in_file();
-                        printf("\n\n");
-                        break;
-                    case 10:
-                        system("cls");
-                        fordelay();
-                        printf("\n| ==============================SHORTING STUDENT DETAILES BY NAME IN DISPLAY============================== |");
-                        printf("\n\n");
-                        short_name_on_screen();
-                        printf("\n\n");
-                        break;
-                    case 11:
-                        system("cls");
-                        fordelay();
-                        printf("\n| ==============================SHORTING STUDENT DETAILES BY NAME IN DISPLAY============================== |");
-                        printf("\n\n");
-                        short_name_on_file();
-                        printf("\n\n");
-                        break;
-                    }
-
-                } while (choice != 0);
-            }
-            else
-            {
-                printf("\nWorng Password");
-            }
-        }
+        login();
     }
 
     return 0;
