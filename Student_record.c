@@ -642,7 +642,7 @@ void reset_password()
     scanf("%s", &user_name);
     strcpy(file, user_name);
 
-    pfp = fopen(strcat(user_name, ".txt"), "r");
+    pfp = fopen(strcat(user_name, ".txt"), "r"); // will check if the file exist
     if (pfp == NULL)
     {
         printf("\nAccount not register");
@@ -658,7 +658,14 @@ void reset_password()
         fclose(pfp);
         pfp = fopen(file, "w");
         fwrite(&usr, sizeof(user), 1, pfp);
-        printf("\nPassword Successfully Chnaged");
+        if (fwrite != NULL)
+        {
+            printf("\nPassword Successfully Chnaged");
+        }
+        else
+        {
+            printf("\nSomthing Went Worng");
+        }
     }
 }
 
