@@ -701,10 +701,14 @@ int main()
         system("cls");
         login();
         break;
-
     case 3:
         system("cls");
+        printf("\n| ==============================RESET YOUR PASSWORD============================== |");
+        printf("\n\n");
         reset_password();
+        break;
+    default:
+        printf("\nInvalid Option");
     }
     return 0;
 }
