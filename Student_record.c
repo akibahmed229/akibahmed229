@@ -4,35 +4,55 @@
 #include <Windows.h>
 #include <time.h>
 
+void delay(int a)
+{
+    int add, time, i;
+
+    time = a * 1000000;
+    for (i = 0; i < time; i++)
+    {
+        add *= i;
+        add++;
+        add++;
+    }
+}
+
+void fordelay()
+{
+    int i;
+    printf("\n\n\n\t\t\t\t\t\t\t\t\t\t\t");
+    for (i = 0; i < 3; i++)
+    {
+        printf("* ");
+        delay(100);
+    }
+    system("cls");
+}
+
 typedef struct user
 {
     char user_name[30];
     char user_password[30];
-
 } user;
 
 void account()
 {
     user usr;
     FILE *pfp;
-
     char filename[50];
 
     printf("\nEnter Your Email:\t");
     scanf("%s", &usr.user_name);
-
     printf("\nEnter Your Password:\t");
     scanf("%s", &usr.user_password);
 
     strcpy(filename, usr.user_name);
     pfp = fopen(strcat(filename, ".txt"), "w");
     fwrite(&usr, sizeof(user), 1, pfp);
-
     if (fwrite != NULL)
     {
         printf("\nAccount successfully register");
     }
-
     else
     {
         printf("\nSomthing went worng!!!");
@@ -54,13 +74,11 @@ typedef struct student
 
     int total;
     float percentage;
-
 } student;
 
 void create()
 {
     FILE *pfp;
-
     student *s;  // student
     int n, i, j; // n = number of student, i = each student , j = each student mark;
 
@@ -70,7 +88,6 @@ void create()
 
     s = (student *)calloc(n, sizeof(student));
     pfp = fopen("mystudents.txt", "w+");
-
     for (i = 0; i < n; i++)
     {
         s[i].total = 0;
@@ -79,7 +96,6 @@ void create()
         printf("Enter RollNo:\t");
         scanf("%d", &s[i].roll_number);
         fflush(stdin);
-
         printf("Enter Name:\t");
         scanf("%[^\n]s", &s[i].name);
         printf("\n");
@@ -95,14 +111,12 @@ void create()
         s[i].percentage = s[i].total / 3.0;
         fwrite(&s[i], sizeof(student), 1, pfp);
     }
-
     fclose(pfp);
     free(s);
 }
 
 void display()
 {
-
     student s1;
     FILE *pfp;
     int j;
@@ -117,7 +131,6 @@ void display()
         }
         printf("%5d%7.2f || =================", s1.total, s1.percentage);
     }
-
     fclose(pfp);
 }
 
@@ -134,7 +147,6 @@ void append()
 
     s = (student *)calloc(n, sizeof(student));
     pfp = fopen("mystudents.txt", "a"); // "a" = apeend or add new student record in file
-
     for (i = 0; i < n; i++)
     {
         s[i].total = 0;
@@ -143,7 +155,6 @@ void append()
         printf("Enter RollNo:\t");
         scanf("%d", &s[i].roll_number);
         fflush(stdin);
-
         printf("Enter Name:\t");
         scanf("%[^\n]s", &s[i].name);
         printf("\n");
@@ -158,7 +169,6 @@ void append()
         s[i].percentage = s[i].total / 3.0;
         fwrite(&s[i], sizeof(student), 1, pfp);
     }
-
     fclose(pfp);
     free(s);
 }
@@ -184,7 +194,6 @@ void search()
     scanf("%d", &rollnum);
 
     pfp = fopen("mystudents.txt", "r");
-
     while (fread(&s1, sizeof(student), 1, pfp))
     {
         if (s1.roll_number == rollnum)
@@ -199,7 +208,6 @@ void search()
             printf("%5d%7.2f", s1.total, s1.percentage);
         }
     }
-
     if (!found)
     {
         printf("\nRecord Not Found\n");
@@ -219,7 +227,6 @@ void update()
 
     pfp = fopen("mystudents.txt", "r");
     pfp1 = fopen("temp.txt", "w"); // to update the recored creat a temp file and pass the value of mystudent
-
     while (fread(&s1, sizeof(student), 1, pfp))
     {
         if (s1.roll_number == rollnum)
@@ -244,10 +251,8 @@ void update()
         }
         fwrite(&s1, sizeof(student), 1, pfp1); // will store mystudent.txt value
     }
-
     fclose(pfp);
     fclose(pfp1);
-
     if (found)
     {
         pfp = fopen("mystudents.txt", "w");
@@ -260,7 +265,6 @@ void update()
         fclose(pfp);
         fclose(pfp1);
     }
-
     else
     {
         printf("\nRecord Not Found\n");
@@ -276,7 +280,6 @@ void delete_record()
 
     printf("Enter RollNo to update:\t");
     scanf("%d", &rollnum);
-
     // to delete record we have to open file same as Void update
     pfp = fopen("mystudents.txt", "r");
     pfp1 = fopen("temp.txt", "w");
@@ -292,16 +295,12 @@ void delete_record()
             fwrite(&s1, sizeof(student), 1, pfp1);
         }
     }
-
     fclose(pfp);
     fclose(pfp1);
-
     if (found)
     {
         pfp = fopen("mystudents.txt", "w");
-
         pfp1 = fopen("temp.txt", "r");
-
         while (fread(&s1, sizeof(student), 1, pfp1)) // while in read mode temp.txt
         {
             fwrite(&s1, sizeof(student), 1, pfp); // it will write  or store nothin in the mystudents.txt
@@ -309,7 +308,6 @@ void delete_record()
         fclose(pfp);
         fclose(pfp1);
     }
-
     else
     {
         printf("\nRecord Not Found\n");
@@ -318,7 +316,6 @@ void delete_record()
 
 void short_total_on_screen()
 {
-
     student *s, s1; // create a initial pointer to get the first student adress
     FILE *pfp;
     pfp = fopen("mystudents.txt", "r");
@@ -344,7 +341,6 @@ void short_total_on_screen()
             }
         }
     }
-
     for (int i = 0; i < n; i++) // it will shot the student buy the avrage higest percentenc
     {
         printf("\n%-5d%-20s", s[i].roll_number, s[i].name);
@@ -354,7 +350,6 @@ void short_total_on_screen()
         }
         printf("%5d%7.2f", s[i].total, s[i].percentage);
     }
-
     fclose(pfp);
     free(s);
 }
@@ -387,11 +382,8 @@ void short_total_in_file()
             }
         }
     }
-
     // after shorting
-
     pfp = fopen("mystudents.txt", "w");
-
     for (int i = 0; i < n; i++) // it will shot the student buy the avrage higest percentenc
     {
         printf("\n%-5d%-20s", s[i].roll_number, s[i].name);
@@ -403,14 +395,12 @@ void short_total_in_file()
         printf("%5d%7.2f", s[i].total, s[i].percentage);
         fwrite(&s[i], sizeof(student), 1, pfp); // short file and save in mystudents.txt file
     }
-
     fclose(pfp);
     free(s);
 }
 
 void short_name_on_screen()
 {
-
     student *s, s1; // create a initial pointer to get the first student adress
     FILE *pfp;
     pfp = fopen("mystudents.txt", "r");
@@ -419,7 +409,6 @@ void short_name_on_screen()
 
     s = (student *)calloc(n, sizeof(student)); // creating Dynamic accolation memeory As the number of student details (n) can be updated over time
     rewind(pfp);
-
     for (int i = 0; i < n; i++)
     {
         fread(&s[i], sizeof(student), 1, pfp); // open file and read i number student details (n) each time
@@ -436,7 +425,6 @@ void short_name_on_screen()
             }
         }
     }
-
     for (int i = 0; i < n; i++) // it will short the student buy the avrage higest percentage
     {
         printf("\n%-5d%-20s", s[i].roll_number, s[i].name);
@@ -446,14 +434,12 @@ void short_name_on_screen()
         }
         printf("%5d%7.2f", s[i].total, s[i].percentage);
     }
-
     fclose(pfp);
     free(s);
 }
 
 void short_name_on_file()
 {
-
     student *s, s1; // create a initial pointer to get the first student adress
     FILE *pfp;
     pfp = fopen("mystudents.txt", "r");
@@ -462,14 +448,11 @@ void short_name_on_file()
 
     s = (student *)calloc(n, sizeof(student)); // creating Dynamic accolation memeory As the number of student details (n) can be updated over time
     rewind(pfp);
-
     for (int i = 0; i < n; i++)
     {
         fread(&s[i], sizeof(student), 1, pfp); // open file and read i number student details (n) each time
     }
-
     fclose(pfp);
-
     for (int i = 0; i < n; i++)
     {
         for (int j = i + 1; j < n; j++)
@@ -482,9 +465,7 @@ void short_name_on_file()
             }
         }
     }
-
     pfp = fopen("mystudents.txt", "w");
-
     for (int i = 0; i < n; i++) // it will short the student buy the avrage higest percenteage
     {
         printf("\n%-5d%-20s", s[i].roll_number, s[i].name);
@@ -495,34 +476,8 @@ void short_name_on_file()
         printf("%5d%7.2f", s[i].total, s[i].percentage);
         fwrite(&s[i], sizeof(student), 1, pfp);
     }
-
     fclose(pfp);
     free(s);
-}
-
-void delay(int a)
-{
-    int add, time, i;
-
-    time = a * 1000000;
-    for (i = 0; i < time; i++)
-    {
-        add *= i;
-        add++;
-        add++;
-    }
-}
-
-void fordelay()
-{
-    int i;
-    printf("\n\n\n\t\t\t\t\t\t\t\t\t\t\t");
-    for (i = 0; i < 3; i++)
-    {
-        printf("* ");
-        delay(100);
-    }
-    system("cls");
 }
 
 void login()
@@ -534,32 +489,25 @@ void login()
     char user_password[50];
 
     system("cls");
-
     printf("\n| ==============================LOGIN TO ACCESS ALL OF THE FEATURES============================== |");
     printf("\n\n");
-
     printf("Enter Your Email:\t");
     scanf("%s", &user_name);
-
     printf("\nEnter Your Password:\t");
     scanf("%s", &user_password);
 
     pfp = fopen(strcat(user_name, ".txt"), "r");
-
     if (pfp == NULL)
     {
         printf("\nAccount not register");
     }
-
     else
     {
         fread(&usr, sizeof(user), 1, pfp);
         fclose(pfp);
-
         if (!strcmp(user_password, usr.user_password))
         {
             system("cls");
-
             do
             // if password matched it will exicute the following pogramming
             {
@@ -567,7 +515,6 @@ void login()
                 printf("\n|                               Developed By AKIB AHMED                               |");
                 printf("\n|_____________________________________________________________________________________|");
                 printf("\n\n");
-
                 printf("\n1. CREATE");
                 printf("\n2. DISPLAY");
                 printf("\n3. APPEND");
@@ -674,7 +621,6 @@ void login()
                     printf("\n\n");
                     break;
                 }
-
             } while (choice != 0);
         }
         else
@@ -684,9 +630,40 @@ void login()
     }
 }
 
+void reset_password()
+{
+    user usr;
+    FILE *pfp;
+    char user_name[30];
+    char user_password[30];
+    char file[30];
+
+    printf("\nEnter Your Email:\t");
+    scanf("%s", &user_name);
+    strcpy(file, user_name);
+
+    pfp = fopen(strcat(user_name, ".txt"), "r");
+    if (pfp == NULL)
+    {
+        printf("\nAccount not register");
+    }
+    else
+    {
+        fread(&usr, sizeof(user), 1, pfp);
+        fclose(pfp);
+        printf("\nEnter New Password:\t");
+        scanf("%s", &user_password);
+        strcpy(usr.user_password, user_password);
+        pfp = fopen(strcat(file, ".txt"), "r");
+        fclose(pfp);
+        pfp = fopen(file, "w");
+        fwrite(&usr, sizeof(user), 1, pfp);
+        printf("\nPassword Successfully Chnaged");
+    }
+}
+
 int main()
 {
-
     int first_choice;
 
     fordelay();
@@ -698,24 +675,29 @@ int main()
     printf("\n\n\n\n");
     printf("\n1.CREATE NEW ACCOUNT");
     printf("\n2.LOGIN INTO ACCOUNT");
+    printf("\n3.RESET YOUR PASSWORD");
     printf("\n0.EXIT");
 
     printf("\n\nEnter Your Choice:\t");
     scanf("%d", &first_choice);
-    if (first_choice == 1)
-    // will creat new account
+    switch (first_choice)
     {
+    case 1:
+        // will creat new account
         system("cls");
         printf("\n| ==============================CREATE YOUR ACCOUNT============================== |");
         printf("\n\n");
         account();
-    }
-    else if (first_choice == 2)
-    // will check if the password is worng or right
-    {
+        break;
+    case 2:
+        // will check if the password is worng or right
         system("cls");
         login();
-    }
+        break;
 
+    case 3:
+        system("cls");
+        reset_password();
+    }
     return 0;
 }
