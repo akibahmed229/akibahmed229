@@ -1,6 +1,6 @@
 # Hello Good People
 
-I'm Akib, a Full Stack Web Application Developer .
+I'm Akib, a Full Stack Developer .
 
 :coffee: &emsp;Connect with me!
 
