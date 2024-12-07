@@ -1,6 +1,6 @@
 # Hello Good People
 
-I'm Akib, a Full Stack Developer .
+I'm Akib, a Full Stack Developer & DevOPS Engineer.
 
 :coffee: &emsp;**Connect with me!**
 
