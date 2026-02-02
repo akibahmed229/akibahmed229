@@ -4,6 +4,8 @@
 
 :hearts: &emsp;**I do programming for fun**<br/>
 :e-mail: &emsp;**How to reach me: akib4418@gmail.com**<br/>
+:bookmark_tabs: &emsp;**Visit my blog / learning journal:** [My Learning Journal](https://akibahmed229.github.io/nixos/index.html)<br/>
+
 
 
 ## About
