@@ -9,7 +9,7 @@
 
 
 ## About
-I am a graduate of Computer Science that specializes in web and cross-platform mobile system construction, which is system-oriented. Clean, testable code, restful APIs, and deployable infrastructure are upheld in my work. I like to transform ideas into credible products and not only as coursework projects but as self-education (homelab, containerization, network tooling).
+I am a graduate of Computer Science and Engineering that specializes in web and cross-platform mobile system construction, which is system-oriented. Clean, testable code, restful APIs, and deployable infrastructure are upheld in my work. I like to transform ideas into credible products and not only as coursework projects but as self-education (homelab, containerization, network tooling).
 
 
 
