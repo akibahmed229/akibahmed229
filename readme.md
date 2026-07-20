@@ -31,4 +31,9 @@ I am a graduate of Computer Science and Engineering that specializes in web and 
 
 
 ## GitHub Stats
+<div align="center">
+  
 [![GitHub Streak](https://streak-stats.demolab.com?user=akibahmed229&theme=transparent)](https://git.io/streak-stats)
+
+</div>
+
