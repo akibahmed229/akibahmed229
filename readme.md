@@ -31,4 +31,4 @@ I am a graduate of Computer Science and Engineering that specializes in web and 
 
 
 ## GitHub Stats
-![](https://github-readme-stats.vercel.app/api?username=akibahmed229&theme=transparent&hide_border=false&include_all_commits=false&count_private=false)<br/>
+[![GitHub Streak](https://streak-stats.demolab.com?user=akibahmed229&theme=transparent)](https://git.io/streak-stats)
