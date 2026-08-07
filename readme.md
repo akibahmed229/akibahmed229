@@ -26,8 +26,6 @@ I am a graduate of Computer Science and Engineering that specializes in web and 
 ![TypeScript](https://img.shields.io/badge/Typescript-%23007ACC.svg?style=flat-square&logo=typescript&logoColor=white) ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black) ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white) ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=flutter&logoColor=white) ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white) ![Postgres](https://img.shields.io/badge/Postgres-316192?style=flat-square&logo=postgresql&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=flat-square&logo=git&logoColor=white) ![Linux](https://img.shields.io/badge/Linux-%23121011.svg?style=flat-square&logo=linux&logoColor=white) ![Nix](https://img.shields.io/badge/NIX-5277C3.svg?style=flat-square&logo=NixOS&logoColor=white) 
 
 
----
-
 
 
 ## GitHub Stats
